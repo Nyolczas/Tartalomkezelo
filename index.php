@@ -1,4 +1,8 @@
 <?php
+//require_once("adatbazis.php");
+//$sql = "";
+/* ... */
+
 $menunev = "Bemutatkozás";
 $leiras = "Az oldal pár mondatos leírása...";
 $kulcsszavak = "kulcsszó1, kulcsszó2, kulcsszó3, kulcsszó4";
