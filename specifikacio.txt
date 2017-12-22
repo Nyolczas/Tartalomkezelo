@@ -1,0 +1,6 @@
+Készítsünk saját tartalomezelő rendszert php-mysql környezetben.
+Jelszóval védett adminisztrációs felületen lehessen felvenni új menüpontokat,
+lehessen törölni és módosítani azokat egyszerű szerkesztővel.
+Lehessen különböző dinamikus modulokat is használni, pl kapcsolat, chat , fórum, képgaléria.
+A rendszr legyen keresőbarát, Legyen különválasztva a tartalom, a megjelenés és a viselkedés, ezáltal könnyen testreszabható legyen.
+Rudjon tartalmakat RSS-be, vagy PDF-be is menteni.
