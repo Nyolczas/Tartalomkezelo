@@ -7,17 +7,19 @@ $sql = "SELECT id, alias, menunev
         WHERE statusz = 1
         ORDER BY sorrend ASC";
 
-$menu = '<ul>
-             <li><a href="#" class="aktiv">Bemutatkozás</a></li>
-             <li><a href="#">Kedvencek</a></li>
-             <li><a href="#">Galéria</a></li>
-             <li><a href="#">Kapcsolat</a></li>
-         </ul>';
+$eredmeny = mysqli_query($dbconn, $sql);
+
+$menu = "<ul>\n";
+while ($sor = mysqli_fetch_assoc($eredmeny)) {
+	$menu.= "<li><a href=\"index.php?id={$sor['id']}\">{$sor['menunev']}</a></li>\n";
+}
+$menu.="</ul>\n";
 
 /* Tartalom összeállítása */
+$id = (isset($_GET['id'])) ? $_GET['id'] : 1;
 $sql = "SELECT menunev, tartalom, modositas, leiras, kulcsszavak
         FROM cms_tartalom
-        WHERE id = 1
+        WHERE id = {$id}
         LIMIT 1";
 
 $leiras = $sor['leiras'];
