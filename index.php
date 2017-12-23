@@ -11,15 +11,15 @@ $eredmeny = mysqli_query($dbconn, $sql);
 
 $menu = "<ul>\n";
 while ($sor = mysqli_fetch_assoc($eredmeny)) {
-	$menu.= "<li><a href=\"index.php?id={$sor['id']}\">{$sor['menunev']}</a></li>\n";
+	$menu.= "<li><a href=\"./{$sor['alias']}\">{$sor['menunev']}</a></li>\n";
 }
 $menu.="</ul>\n";
 
 /* Tartalom összeállítása */
-$id = (isset($_GET['id'])) ? (int)$_GET['id'] : 1;
-$sql = "SELECT menunev, tartalom, modositas, leiras, kulcsszavak
+$alias = (isset($_GET['alias'])) ? $_GET['alias'] : "bemutatkozas";
+$sql = "SELECT menunev, tartalom, letrehozas, modositas, leiras, kulcsszavak
         FROM cms_tartalom
-        WHERE id = {$id}
+        WHERE alias = '{$alias}'
         LIMIT 1";		
 $eredmeny = mysqli_query($dbconn, $sql);
 
@@ -30,6 +30,7 @@ if (mysqli_num_rows($eredmeny) == 1) {
 	$kulcsszavak = $sor['kulcsszavak'];
 	$menunev = $sor['menunev'];
 	$tartalom = $sor['tartalom'];
+	$letrehozas = $sor['letrehozas'];
 }
 /* Érvénytelen tartalom */
 else {
@@ -37,6 +38,7 @@ else {
 	$kulcsszavak = "";
 	$menunev = "Hiba";
 	$tartalom = "<p><em>A keresett oldal nem található...</em></p>";
+	$letrehozas = date("Y-m-d H:i:s");
 }
 
 
@@ -50,6 +52,7 @@ $sablon = str_replace("{{leiras}}",   $leiras,   $sablon);
 $sablon = str_replace("{{kulcsszavak}}", $kulcsszavak, $sablon);
 $sablon = str_replace("{{menu}}",     $menu,     $sablon);
 $sablon = str_replace("{{tartalom}}", $tartalom, $sablon);
+$sablon = str_replace("{{letrehozas}}", $letrehozas, $sablon);
 $sablon = str_replace("{{oldalsav}}", $oldalsav, $sablon);
 print $sablon;
 ?>
