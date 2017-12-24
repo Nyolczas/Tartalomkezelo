@@ -5,6 +5,29 @@ body {
     font-family: "Arial";
 }
 
+table {
+	font-size: 12px;
+	border: solid 2px #000;
+	border-collapse: collapse;
+}
+
+tr:nth-child(2n) {
+	background-color: #eee;
+}
+
+tr:nth-child(2n+1) {
+	background-color: #fff;
+}
+
+th, td {
+	padding: 5px;
+	border: solid 1px #000;
+}
+
+th {
+	background-color: #F00;
+}
+
 #befoglalo {
     width: 960px;
     margin: auto;
