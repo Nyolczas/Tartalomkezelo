@@ -28,6 +28,10 @@ th {
 	background-color: #F00;
 }
 
+form #tartalom {
+	margin: 0;
+}
+
 #befoglalo {
     width: 960px;
     margin: auto;

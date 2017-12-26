@@ -1,3 +1,5 @@
+<?php
+$urlap = <<<URLAP
 <form method="post" action="">
 	<h3>Új oldal létrehozása</h3>
 	<p><label for="alias">Alias:</label><br>
@@ -14,6 +16,19 @@
 	<textarea id="kulcsszavak" name="kulcsszavak"></textarea></p>
 	<p><label for="statusz">Státusz:</label><br>
 	<select id="statusz" name="statusz">
-	
-	</select>
+		<option value="1">Látható</option>
+		<option value="0">Láthatatlan</option>
+	</select></p>
+	<input type="submit" id="rendben" name="rendben" value="Rendben">
+	<input type="reset" value="Mégse">
 </form>
+URLAP;
+
+//Sablonozó
+$sablon = file_get_contents("sablon.html");
+$sablon = str_replace("{{menunev}}",  "Új oldal létrehozása",   $sablon);
+$sablon = str_replace("{{menu}}",     "",     $sablon);
+$sablon = str_replace("{{tartalom}}", $urlap, $sablon);
+$sablon = str_replace("{{oldalsav}}", "", $sablon);
+print $sablon;
+?>
