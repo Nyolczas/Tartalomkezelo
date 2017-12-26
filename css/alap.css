@@ -95,6 +95,15 @@ th {
     text-align: justify;
 }
 
+#tartalom a {
+	color: #333;
+	text-decoration: none;
+}
+
+#tartalom a:hover {
+	color: #c00;
+}
+
 #oldalsav {
     float: right;
     width: 200px;
